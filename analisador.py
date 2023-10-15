@@ -1,5 +1,4 @@
 import json, re, argparse, os, logging
-from datetime import datetime
 
 
 def fetch_reserved_words(file_path:str='reserved_words.json') -> dict[str]:
