@@ -32,7 +32,6 @@
     "float_num" : "[0-9]+\\.[0-9]+",
     "identifier" : "[a-zA-Z]\\w*",
 
-    "var_declaration" : "\b(?!word1|word2|word3)[a-zA-Z]\\w*:",
     "two_points" : ":",
     "var_with_comma" : "([a-zA-Z]\\w*),",
 

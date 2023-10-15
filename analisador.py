@@ -25,13 +25,12 @@ def fetch_reserved_words(file_path:str='reserved_words.json') -> dict[str]:
         data = json.loads(f.read())
 
     for key, value in data.items():
-        if key == 'var_declaration':
-            data[key] = r'\b(?!'
-            data[key] += '|'.join(data['reseverd_words'].values())
-            data[key] += r')[a-zA-Z]\w*:'
-
-        elif key != 'reseverd_words':
+        if key != 'reseverd_words':
             data[key] = re.compile(f'{value}{data["end_line"]}?')
+
+    data['var_declaration'] = r'\b(?!'
+    data['var_declaration'] += '|'.join(data['reseverd_words'].values())
+    data['var_declaration'] += r')[a-zA-Z]\w*:'
 
     return data
     
