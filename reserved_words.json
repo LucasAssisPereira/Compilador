@@ -1,0 +1,51 @@
+{   
+    "reseverd_words" : {
+        "if" : "if",
+        "begin" : "begin",
+        "end" : "end",
+        "program" : "program",
+        "var" : "var",
+        "then" : "then", 
+        "else" : "else",
+        "while" : "while",
+        "do" : "do",
+        "for" : "for",
+        "to" : "to",
+        "downto" : "downto",
+        "function" : "function",
+        "procedure" : "procedure",
+        "not" : "not",
+        "mod" : "mod",
+        "and" : "and",
+        "or" : "or",
+        "array" : "array",
+        "of" : "of",
+        "integer" : "integer",
+        "real" : "real",
+        "boolean" : "boolean",
+        "char" : "char",
+        "string" : "string"
+    },
+
+    "string_word" : "'([^']*)'",
+    "integer_num" : "\\d*",
+    "float_num" : "[0-9]+\\.[0-9]+",
+    "identifier" : "[a-zA-Z]\\w*",
+
+    "var_declaration" : "\b(?!word1|word2|word3)[a-zA-Z]\\w*:",
+    "two_points" : ":",
+    "var_with_comma" : "([a-zA-Z]\\w*),",
+
+    "attribution" : ":=",
+    "plus" : "\\+",
+    "minus" : "-",
+    "mult" : "\\*",
+    "div" : "/",
+
+    "lt" : "<",
+    "gt" : ">",
+
+    "function_call" : "([a-zA-Z]\\w*)(\\([^)]*\\))?;?",
+    
+    "end_line" : ";"
+}
