@@ -34,7 +34,7 @@ Código usado para a disciplina de Linguagens Formais e Autômatos.
 | ---------- | --------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------- |
 | `-r`       | `Palavras Reservadas`       | **Opcional, default='reserved_words.json'** | Caminho para outro arquivo .json caso deseje usar                            |
 | `-c`       | `Código`                    | **Obrigatório**                             | Código que será analisado                                                    |
-| `-s`       | `Mostrar palavras corretas` | **Opcional, padrão=False**                  | Booleano que determina se serão ou não mostrado na tela as palavras corretas |
+| `-s`       | `Mostrar palavras corretas?`| **Opcional, padrão=False**                  | Booleano que determina se serão ou não mostrado na tela as palavras corretas |
 | `-l`       | `Fazer log da análise`      | **Opcional, padrão=None**                   | Caminho da pasta onde será criado uma pasta 'logs' e o primeiro arquivo.     |
 
 ### Exemplo
