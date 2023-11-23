@@ -1,35 +1,9 @@
-program TestLexer;
-var
-    x, y: integer;
-    z : real;
-    begin: integer
-
-begin
-    x := 42;
-    y := 3.14;
-    z := 10;
-
-    if x > 30 then
-        write('x')
-    else
-        write('x');
-
-    while y < 5 do
-    begin
-        write('y');
-        y := y + 1;
-    end;
-
-    for z := 1 to 5 do
-        write(z);
-
-    for z := 10 downto 1 do
-        write(z);
-
-    procedure myProcedure;
-    begin:
-        write('Hello');
-    end;
-    
-    myProcedure();
-end.
+PROGRAM exemplo;
+VAR
+     x: INTEGER;
+     y: INTEGER;
+BEGIN
+    x := 10;
+    y := 20;
+    WRITE('A soma de ', x, ' e ', y, ' é: ', x + y);
+END.

@@ -1,48 +1,53 @@
-# Analisador Léxico
+### Compilador Simples
+Um compilador simples em Python que realiza análise léxica, análise sintática e análise semântica para uma linguagem fictícia.
 
-Código usado para a disciplina de Linguagens Formais e Autômatos.
-
-```Python version: 3.11```
-
-## Como Usar
-
-- Clone o projeto
-
-```bash
-  git clone https://github.com/VictorDMe/analisador_lexico
+* Pré-requisitos
+``` 
+Python 3.11
+Ply (instalável via pip install ply)
 ```
-
-- Entre no diretório do projeto
-
-```bash
-  cd analisador_lexico
+* Estrutura do Projeto
+``` 
+├── analisador_lexico.py
+├── analisador_sintatico.py
+├── analisador_semantico.py
+├── main.py
+├── README.md
 ```
-
-- Modifique o arquivo reserved_words.json com as palavras reservadas e expressões regulares de seu interesse
-
-- Rode o programa pelo terminal passando o código que quer analisar como argumento.
-
-```bash
-  python main.py -c <arquivo>
+Como Usar
+Instalação de Dependências:
 ```
-
-## Documentação
-
-### Argumentos 
-
-| Abreviação | O que é                     | Necessidade                                 | Descrição                                                                    |
-| ---------- | --------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------- |
-| `-r`       | `Palavras Reservadas`       | **Opcional, default='reserved_words.json'** | Caminho para outro arquivo .json caso deseje usar                            |
-| `-c`       | `Código`                    | **Obrigatório**                             | Código que será analisado                                                    |
-| `-s`       | `Mostrar palavras corretas?`| **Opcional, padrão=False**                  | Booleano que determina se serão ou não mostrado na tela as palavras corretas |
-| `-l`       | `Fazer log da análise`      | **Opcional, padrão=None**                   | Caminho da pasta onde será criado uma pasta 'logs' e o primeiro arquivo.     |
-
-### Exemplo
-
-```bash
-  python main.py -r new_reseverd_words.json -c teste_arquivo.txt -s true -l path/to/my/folder
+pip install ply
 ```
+Execução do Compilador:
 
-## Licença
+```
+python main.py
+```
+###### Isso executará o programa principal, que demonstra a análise léxica, sintática e semântica de um exemplo de código.
 
-[MIT](https://choosealicense.com/licenses/mit/)
+* Detalhes do Código
+  - ##### analisador_lexico.py: 
+    - ###### Contém o analisador léxico que converte o código-fonte em uma sequência de tokens.
+  - ##### analisador_sintatico.py:
+    - ###### Implementa o analisador sintático usando PLY para criar a árvore de sintaxe abstrata (AST).
+  - ##### analisador_semantico.py:
+    - ###### Implementa o analisador semântico que verifica tipos e realiza análise de escopo.
+  - ##### main.py:
+    - ###### Arquivo principal que inicia o processo de compilação.
+  - ##### codigo_teste.txt:
+    - ###### Arquivo que é lido para ser analisado. 
+# Exemplo de código-fonte
+```
+PROGRAM exemplo;
+VAR
+    x: INTEGER;
+    y: INTEGER;
+BEGIN
+    x := 10;
+    y := 20;
+    WRITE('A soma de ', x, ' e ', y, ' é: ', x + y);
+END.
+```
+Licença
+Este projeto está licenciado sob a Licença MIT.
