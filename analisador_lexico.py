@@ -9,6 +9,11 @@ reserved = {
     'INTEGER': 'INTEGER',
     'WRITE': 'WRITE',
     'READ': 'READ',
+    'REAL': 'REAL',
+    'BOOLEAN': 'BOOLEAN',
+    'FLOAT': 'FLOAT',
+    'STRING': 'STRING',
+
 }
 
 # Lista de tokens
@@ -25,12 +30,15 @@ tokens = [
     'LPAREN',
     'RPAREN',
     'DOT',
-    'STRING',
+
     'COMMA',
     'EMPTY',
+
+
 ] + list(reserved.values())
 
 # Expressões regulares para os tokens
+
 t_SEMICOLON = r';'
 t_COLON = r':'
 t_ASSIGN = r':='
@@ -41,12 +49,32 @@ t_DIVIDE = r'/'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_DOT = r'\.'
-t_ignore = ' \t'
+t_ignore = ' \t\n'
+
 
 # Identificadores e palavras-chave
+
+def t_PROGRAM(t):
+    r'PROGRAM'
+    return t
+def t_VAR(t):
+    r'VAR'
+    return t
+def t_INTEGER(t):
+    r'INTEGER'
+    return t
+def t_STRING(t):
+    r'"[^"]*"'
+    t.value = t.value[1:-1]  # Remove as aspas duplas
+    return t
+def t_FLOAT(t):
+    r'\d+\.\d+'
+    t.value = float(t.value)
+    return t
+
 def t_ID(t):
-    r'[a-zA-Z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value.upper(), 'ID')
+    r'[a-zA-Z_][a-zA-Z_0-9]*'
+    t.type = reserved.get(t.value, 'ID')  # Verifica se é uma palavra reservada
     return t
 
 # Números
@@ -56,11 +84,6 @@ def t_NUM(t):
     print(f"Recognized NUM: {t.value}")
     return t
 
-# Expressões regulares para strings
-def t_STRING(t):
-    r'\"([^"]|\\.)*\"|\'([^\']|\\.)*\''
-    t.value = t.value[1:-1]  # Remover as aspas
-    return t
 
 # Tratar vírgula como um token válido
 def t_COMMA(t):
@@ -75,6 +98,11 @@ def t_EMPTY(t):
 def t_error(t):
     print(f"Caractere inválido: {t.value[0]}")
     t.lexer.skip(1)
+
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno = len(t.value)
+    print(t.lexer.lineno)
 
 # Criar o analisador léxico
 lexer = lex.lex()

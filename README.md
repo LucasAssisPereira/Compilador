@@ -1,5 +1,5 @@
 ### Compilador Simples
-Um compilador simples em Python que realiza análise léxica, análise sintática e análise semântica para uma linguagem fictícia.
+Um compilador simples em Python que realiza análise léxica, análise sintática e análise semântica para MINI PASCAL.
 
 * Pré-requisitos
 ``` 
