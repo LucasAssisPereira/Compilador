@@ -127,23 +127,23 @@ parser = yacc.yacc()
 
 
 # Função para analisar um arquivo
-def parse_file(file_path):
+def parse_file(caminho_arquivo):
     global erro_sintatico
     erro_sintatico = False
 
     try:
-        with open(file_path, 'r') as file:
+        with open(caminho_arquivo, 'r') as file:
             content = file.read()
-            statement_list, end_name = read_code_blocks_from_content(content)
+            read_code_blocks_from_content(content)
             result = parser.parse(content)
-
+            print("\n\n",content, "\n\n")
             if not erro_sintatico:
                 print("Análise sintática concluída com sucesso.")
-
+            print(result)
             return result
 
     except FileNotFoundError:
-        print(f"Erro: O arquivo '{file_path}' não foi encontrado.")
+        print(f"Erro: O arquivo '{caminho_arquivo}' não foi encontrado.")
         return None, None, None
     except Exception as e:
         print(f"Erro durante a análise sintática: {e}")
