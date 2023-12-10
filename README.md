@@ -41,13 +41,15 @@ python main.py
 ```
 PROGRAM exemplo;
 VAR
-    x: INTEGER;
-    y: INTEGER;
+     x : INTEGER;
+     z : INTEGER;
+     y : INTEGER;
 BEGIN
     x := 10;
     y := 20;
-    WRITE('A soma de ', x, ' e ', y, ' é: ', x + y);
+    z := x + y;
 END.
+
 ```
 Licença
 Este projeto está licenciado sob a Licença MIT.
