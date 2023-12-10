@@ -14,13 +14,10 @@ def analise_sintatica_e_semantica(caminho_do_arquivo):
         # Analisador sintático
         ast = parse_file(caminho_do_arquivo)
 
-        if ast is None:
-            print("Erro Semantico")
-        else:
-            # Analisador semântico
-            semantico = Semantico()
-            semantico.analyze(ast)
-            print("Análise semântica concluída.")
+        # Analisador semântico
+        semantico = Semantico()
+        semantico.analyze(ast)
+        print("Análise semântica concluída.")
 
     except Exception as e:
         print(f"Erro durante a análise: {e}")
